@@ -1,11 +1,15 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,11 +22,16 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class MenuActivity extends AppCompatActivity {
      String FName,LName,phonenum,nationalid,fullname,mfile,bloodtype;
      Bitmap b;
      private boolean i=false;
+    private ImageView profileimg;
+    Uri selectPhotoUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
         final EditText FirstName=findViewById(R.id.FirstName);
         final EditText LastName=findViewById(R.id.LastName);
         final EditText PhoneNo=findViewById(R.id.PhoneNo);
-        final ImageView profileimg=findViewById(R.id.profile_image);
+        profileimg  =findViewById(R.id.profile_image);
         Button pSave=findViewById(R.id.SavePersonalInfo);
 
 
@@ -78,7 +87,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGalleryIntent,10000);
+                startActivityForResult(openGalleryIntent,1);
             }
         });
 
@@ -139,20 +148,47 @@ public class MenuActivity extends AppCompatActivity {
                 intent.putExtra("hbloodtype",bloodtype);
 
 
-                intent.putExtra("aPhonenum",PhoneNoA.getText());
-                intent.putExtra("aMsg1",message1.getText());
-                intent.putExtra("aMsg2",message2.getText());
-                intent.putExtra("aMsg3",message3.getText());
+
+                String pha = PhoneNoA.getText().toString();
+                intent.putExtra("aPhonenum",pha);
+
+                intent.putExtra("aMsg1",message1.getText().toString());
+                intent.putExtra("aMsg2",message2.getText().toString());
+                intent.putExtra("aMsg3",message3.getText().toString());
 
 
                 PersonalInformation.setVisibility(View.GONE);
                 HealthProfile.setVisibility(View.GONE);
                 AssistantInfo.setVisibility(View.GONE);
 
-                startActivity(intent);}
+                startActivity(intent);
+                }
 
 
             });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==1 && resultCode== Activity.RESULT_OK && data != null){
+
+             selectPhotoUri = data.getData();
+
+
+
+            try {
+                b = MediaStore.Images.Media.getBitmap(getContentResolver(), selectPhotoUri);
+                profileimg.setImageBitmap(b);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
 
     }
 }
