@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="PersonalInfo" type="id">PersonalInfo</item>
+    <item name="SavePersonalInfo" type="id">SavePersonalInfo</item>
+    <item name="PhoneNo" type="id">PhoneNo</item>
+    <item name="FirstName" type="id">FirstName</item>
+    <item name="textView11" type="id">FirstName</item>
+    <item name="LastName" type="id">LastName</item>
+    <item name="textView12" type="id">textView12</item>
+    <item name="textView10" type="id">textView10</item>
+    <item name="titlePI" type="id">titlePI</item>
+    <item name="imageButton" type="id">titlePI</item>
+    <item name="assistantInfo" type="id">assistantInfo</item>
+    <item name="SaveAssistantInfo" type="id">SaveAssistantInfo</item>
+    <item name="M3" type="id">M3</item>
+    <item name="phoneNo" type="id">phoneNo</item>
+    <item name="M1" type="id">M1</item>
+    <item name="M2" type="id">M2</item>
+    <item name="textView06" type="id">textView06</item>
+    <item name="textView5" type="id">textView5</item>
+    <item name="textView6" type="id">textView6</item>
+    <item name="textView05" type="id">textView05</item>
+    <item name="titleAI" type="id">titleAI</item>
+    <item name="HealthProfile" type="id">HealthProfile</item>
+    <item name="SaveHealthProfile" type="id">SaveHealthProfile</item>
+    <item name="NID" type="id">NID</item>
+    <item name="FullName" type="id">FullName</item>
+    <item name="MedicalFile" type="id">MedicalFile</item>
+    <item name="Bt_A" type="id" />
+    <item name="bt_B" type="id">bt_B</item>
+    <item name="bt_AB" type="id">bt_AB</item>
+</resources>
