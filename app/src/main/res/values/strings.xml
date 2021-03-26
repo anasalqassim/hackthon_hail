@@ -15,4 +15,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="location_updated">uP</string>
+    <string name="remove_location_updates">Re</string>
+    <string name="launch_activity">tt</string>
 </resources>
