@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import java.time.Instant;
 
 public class MainActivity12 extends AppCompatActivity  {
 
@@ -45,6 +48,10 @@ public class MainActivity12 extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         // for all initializations
         Ins();
+
+        String intent =  getIntent().getStringExtra(key);
+
+
 
 
         Send.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +132,7 @@ public class MainActivity12 extends AppCompatActivity  {
         A1 = findViewById(R.id.A1);
         A2 = findViewById(R.id.A2);
 
-        Send = findViewById(R.id.button2);
+        Send = findViewById(R.id.AssisstnitInfo);
 
 
         // ShakeDetector initialization
