@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -43,6 +44,7 @@ public class MainActivity12 extends AppCompatActivity {
 
 
     private Button Send;
+    private TextView welcomeMsg;
 
 
     // The following are used for the shake detection
@@ -59,6 +61,7 @@ public class MainActivity12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // for all initializations
+        welcomeMsg=findViewById(R.id.userName);
         Ins();
 
 
@@ -188,6 +191,9 @@ public class MainActivity12 extends AppCompatActivity {
             P_firstName = getIntent().getStringExtra("pfirstname");
             P_LastName = getIntent().getStringExtra("plastname");
             P_phoneNumber = getIntent().getStringExtra("pphonenum");
+
+
+            welcomeMsg.setText("Welcome "+P_firstName);
 
             Log.d("UserInfo" ,  "H_phoneNumber : " + H_phoneNumber);
 
