@@ -51,7 +51,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
         //Assistant Info Layout variables declaration :
-        final EditText PhoneNoA=findViewById(R.id.NID);
+        final EditText PhoneNoA=findViewById(R.id.phoneNoo);
         final EditText message1=findViewById(R.id.M1);
         final EditText message2=findViewById(R.id.M2);
         final EditText message3=findViewById(R.id.M3);
@@ -139,10 +139,10 @@ public class MenuActivity extends AppCompatActivity {
                 intent.putExtra("hbloodtype",bloodtype);
 
 
-                intent.putExtra("aphonenum",PhoneNoA.getText());
-                intent.putExtra("amsg1",message1.getText());
-                intent.putExtra("amsg2",message2.getText());
-                intent.putExtra("amsg3",message3.getText());
+                intent.putExtra("aPhonenum",PhoneNoA.getText());
+                intent.putExtra("aMsg1",message1.getText());
+                intent.putExtra("aMsg2",message2.getText());
+                intent.putExtra("aMsg3",message3.getText());
 
 
                 PersonalInformation.setVisibility(View.GONE);
