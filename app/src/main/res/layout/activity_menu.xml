@@ -414,6 +414,180 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <Button
+            android:id="@+id/SaveHealthProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="SAVE"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/NID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="124dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleHP"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/MedicalFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FullName"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/FullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NID"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <RadioGroup
+
+            android:id="@+id/radio"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="60dp"
+
+            android:layout_alignParentStart="true"
+
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.815"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MedicalFile">
+
+
+            <RadioButton
+
+                android:id="@+id/Bt_A"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="A"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textColorHighlight="@color/colorPrimaryDark"
+
+                android:textColorHint="@color/colorPrimaryDark"
+
+                android:textColorLink="@color/colorAccent"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="172dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+            <RadioButton
+
+                android:id="@+id/bt_B"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="B"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+            <RadioButton
+
+                android:id="@+id/bt_AB"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="AB"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="267dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+            <RadioButton
+
+                android:id="@+id/bt_O"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="O"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="324dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+        </RadioGroup>
+
         <TextView
 
             android:id="@+id/textView04"
@@ -443,178 +617,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radio"
             app:layout_constraintEnd_toStartOf="@+id/radio"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.771"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/radio"
-            app:layout_constraintVertical_bias="0.26999998" />
-
-        <RadioGroup
-
-            android:id="@+id/radio"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="60dp"
-
-            android:layout_alignParentStart="true"
-
-            android:layout_alignParentTop="true"
-
-            android:layout_alignParentEnd="true"
-
-            android:layout_alignParentBottom="true"
-
-            android:layout_marginTop="36dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.72"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MedicalFile">
-
-
-            <RadioButton
-
-                android:id="@+id/Bt_A"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="A"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textColorHighlight="@color/colorPrimaryDark"
-
-                android:textColorHint="@color/colorPrimaryDark"
-
-                android:textColorLink="@color/colorAccent"
-
-                android:textStyle="bold" />
-
-
-            <RadioButton
-
-                android:id="@+id/bt_B"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="B"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-            <RadioButton
-
-                android:id="@+id/bt_AB"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="AB"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-
-            <RadioButton
-
-                android:id="@+id/bt_O"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="O"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/SaveHealthProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="SAVE"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radio"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-        <EditText
-            android:id="@+id/NID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.701"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleHP"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-        <EditText
-            android:id="@+id/FullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.706"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NID"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-        <EditText
-            android:id="@+id/MedicalFile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.706"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FullName"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
+            app:layout_constraintVertical_bias="0.305" />
 
         <TextView
             android:id="@+id/textView01"
@@ -628,8 +634,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/NID"
             app:layout_constraintEnd_toStartOf="@+id/NID"
+            app:layout_constraintHorizontal_bias="0.391"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/NID"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -645,12 +653,13 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/FullName"
             app:layout_constraintEnd_toStartOf="@+id/FullName"
-            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintHorizontal_bias="0.346"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/NID"
             app:layout_constraintVertical_bias="1.0"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="0dp" />
+
 
         <TextView
             android:id="@+id/textView03"
@@ -664,8 +673,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/MedicalFile"
             app:layout_constraintEnd_toStartOf="@+id/MedicalFile"
+            app:layout_constraintHorizontal_bias="0.794"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/MedicalFile"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="0dp" />
 
