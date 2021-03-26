@@ -49,7 +49,7 @@ public class MainActivity12 extends AppCompatActivity  {
         // for all initializations
         Ins();
 
-        String intent =  getIntent().getStringExtra(key);
+     //   String intent =  getIntent().getStringExtra(key);
 
 
 
