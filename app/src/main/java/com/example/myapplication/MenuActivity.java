@@ -19,7 +19,9 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 public class MenuActivity extends AppCompatActivity {
-
+     String FName,LName,phonenum,nationalid,fullname,mfile,bloodtype;
+     Bitmap b;
+     private boolean i=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,9 @@ public class MenuActivity extends AppCompatActivity {
 
 
         //3 Relative Layout (GONE)
-        RelativeLayout PersonalInformation =findViewById(R.id.PersonalInfo);
-        RelativeLayout HealthProfile =findViewById(R.id.HealthProfile);
-        RelativeLayout AssistantInfo =findViewById(R.id.assistantInfo);
+        final RelativeLayout PersonalInformation =findViewById(R.id.PersonalInfo);
+        final RelativeLayout HealthProfile =findViewById(R.id.HealthProfile);
+        final RelativeLayout AssistantInfo =findViewById(R.id.assistantInfo);
 
         //Personal Information Layout variables declaration :
         final EditText FirstName=findViewById(R.id.FirstName);
@@ -61,7 +63,7 @@ public class MenuActivity extends AppCompatActivity {
         try{
         String intent =  getIntent().getStringExtra("key");
         switch (intent){
-            case "InfoC" :PersonalInformation.setVisibility(View.VISIBLE);break;
+            case "InfoC" :PersonalInformation.setVisibility(View.VISIBLE); ; break;
             case "MedcK" :HealthProfile.setVisibility(View.VISIBLE);break;
             case "HelpK" :AssistantInfo.setVisibility(View.VISIBLE);break;
         }}
@@ -84,31 +86,35 @@ public class MenuActivity extends AppCompatActivity {
         pSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
-                intent.putExtra("pfirstname",FirstName.getText());
-                intent.putExtra("plastname",LastName.getText());
-                intent.putExtra("pphonenum",PhoneNo.getText());
+                FName= FirstName.getText().toString();
+                LName =LastName.getText().toString();
+                phonenum= PhoneNo.getText().toString();
                 profileimg.setDrawingCacheEnabled(true);
-                Bitmap b=profileimg.getDrawingCache();
-                intent.putExtra("pprofileimg", b);
+                b=profileimg.getDrawingCache();
 
-                startActivity(intent);
-            }
+
+               PersonalInformation.setVisibility(View.GONE);
+               HealthProfile.setVisibility(View.VISIBLE);
+               AssistantInfo.setVisibility(View.GONE);}
+
+
         });
 
         //
         hSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
-                intent.putExtra("hnid",NationalID.getText());
-                intent.putExtra("hfullname",FullName.getText());
-                intent.putExtra("hmfile",MFile.getText());
+                nationalid= NationalID.getText().toString();
+                fullname=FullName.getText().toString();
+                mfile=MFile.getText().toString();
                 int radioID=BloodType.getCheckedRadioButtonId();
                 RadioButton radioButton=findViewById(radioID);
-                intent.putExtra("hbloodtype",radioButton.getText());
+                bloodtype= radioButton.getText().toString();
 
-                startActivity(intent);
+                PersonalInformation.setVisibility(View.GONE);
+                HealthProfile.setVisibility(View.GONE);
+                AssistantInfo.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -117,15 +123,35 @@ public class MenuActivity extends AppCompatActivity {
         aSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
+
+
+                intent.putExtra("pfirstname",FName);
+                intent.putExtra("plastname",LName);
+                intent.putExtra("pphonenum",phonenum);
+                intent.putExtra("pprofileimg", b);
+
+                intent.putExtra("hnid",nationalid);
+                intent.putExtra("hfullname",fullname);
+                intent.putExtra("hmfile",mfile);
+                intent.putExtra("hbloodtype",bloodtype);
+
+
                 intent.putExtra("aphonenum",PhoneNoA.getText());
                 intent.putExtra("amsg1",message1.getText());
                 intent.putExtra("amsg2",message2.getText());
                 intent.putExtra("amsg3",message3.getText());
 
-                startActivity(intent);
-            }
-        });
+
+                PersonalInformation.setVisibility(View.GONE);
+                HealthProfile.setVisibility(View.GONE);
+                AssistantInfo.setVisibility(View.GONE);
+
+                startActivity(intent);}
+
+
+            });
 
     }
 }
