@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="Evrey Thing is  Ok !!"
-            android:textSize="30sp"
+            android:textSize="31sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
