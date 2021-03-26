@@ -10,7 +10,7 @@
         android:id="@+id/PersonalInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -168,7 +168,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/edit_profile_image_border"
+            android:id="@+id/profile_image"
             android:layout_width="131dp"
             android:layout_height="131dp"
             android:layout_alignParentStart="true"
@@ -195,7 +195,7 @@
         android:id="@+id/assistantInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -237,8 +237,10 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
-            android:inputType="date"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="!!!  Im in very Dangers situation come and help me please "
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/missingInfo" />
 
         <EditText
             android:id="@+id/phoneNo"
@@ -273,8 +275,11 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
-            android:inputType="date"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="I'm not in in hurry but can you please if you are free come to help me with something "
+            android:inputType="textMultiLine"
+            android:singleLine="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/missingInfo" />
 
         <EditText
             android:id="@+id/M2"
@@ -291,8 +296,10 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
-            android:inputType="date"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint=" I'm in wired situation Im not sure but if you are free come to me please  "
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/missingInfo" />
 
         <TextView
             android:id="@+id/textView06"
@@ -476,6 +483,7 @@
             android:textColor="@color/colorPrimaryDark" />
 
         <RadioGroup
+            android:id="@+id/radio"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
