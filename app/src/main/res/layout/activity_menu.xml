@@ -40,7 +40,7 @@
         <EditText
             android:id="@+id/PhoneNo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="466dp"
             android:layout_marginEnd="37dp"
@@ -49,6 +49,7 @@
             android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:inputType="number|phone"
+            android:text="+966"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +59,7 @@
         <EditText
             android:id="@+id/FirstName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="331dp"
             android:layout_marginEnd="38dp"
@@ -70,13 +71,15 @@
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/LastName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="395dp"
             android:layout_marginEnd="38dp"
@@ -88,75 +91,74 @@
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="138dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="252dp"
-            android:layout_marginBottom="291dp"
-            android:foregroundGravity="left|center"
-            android:gravity="center|left"
-            android:text="Last Name:"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/LastName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/LastName"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="137dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="254dp"
-            android:layout_marginBottom="223dp"
-            android:foregroundGravity="left|center"
-            android:gravity="center|left"
-            android:text="Phone Number:"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/PhoneNo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/PhoneNo"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="138dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginEnd="251dp"
-            android:layout_marginBottom="358dp"
             android:foregroundGravity="left|center"
             android:gravity="center|left"
             android:text="First Name:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/FirstName"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.288"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/FirstName"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/titlePI"
-            android:layout_width="311dp"
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="254dp"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="Phone Number:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/PhoneNo" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="252dp"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="Last Name:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/LastName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/titlePI"
+            android:layout_width="343dp"
+            android:layout_height="46dp"
             android:layout_marginStart="51dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="49dp"
             android:layout_marginBottom="659dp"
             android:foregroundGravity="center"
@@ -172,17 +174,14 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_image"
-            android:layout_width="131dp"
-            android:layout_height="131dp"
+            android:layout_width="188dp"
+            android:layout_height="188dp"
 
-            android:layout_marginStart="137dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="143dp"
             app:layout_constraintBottom_toTopOf="@+id/FirstName"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titlePI"
-            app:layout_constraintVertical_bias="0.32999998"
             app:shapeAppearanceOverlay="@style/Circular"
             app:srcCompat="@drawable/profile_ic"
             app:strokeColor="#00FFFFFF" />
@@ -206,9 +205,7 @@
             android:id="@+id/SaveAssistantInfo"
             android:layout_width="197dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="31dp"
+            android:layout_marginBottom="40dp"
             android:background="@color/colorAccent"
             android:text="SAVE"
             android:textColor="@color/colorPrimaryDark"
@@ -216,57 +213,30 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/M3"
-            app:layout_constraintVertical_bias="0.794" />
-
-        <EditText
-            android:id="@+id/M3"
-            android:layout_width="wrap_content"
-            android:layout_height="95dp"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="478dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginBottom="157dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:hint="!!!  Im in very Dangers situation come and help me please "
-            android:inputType="textMultiLine"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/missingInfo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/phoneNoo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="157dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginBottom="529dp"
+            android:layout_width="214dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginBottom="32dp"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:inputType="number|phone"
+            android:text="+966"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/textView06"
+            app:layout_constraintEnd_toEndOf="@+id/textView05"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView05" />
 
         <EditText
             android:id="@+id/M1"
-            android:layout_width="wrap_content"
-            android:layout_height="95dp"
-            android:layout_marginStart="161dp"
+            android:layout_width="312dp"
+            android:layout_height="101dp"
             android:layout_marginTop="228dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginBottom="407dp"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
@@ -274,119 +244,119 @@
             android:inputType="textMultiLine"
             android:singleLine="false"
             android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/missingInfo"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColorHint="#63757575"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.565"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/M2"
-            android:layout_width="wrap_content"
-            android:layout_height="95dp"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="352dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginBottom="283dp"
+            android:layout_width="311dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="68dp"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:hint=" I'm in wired situation Im not sure but if you are free come to me please  "
             android:inputType="textMultiLine"
             android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/missingInfo"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColorHint="#63757575"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="@+id/M1"
+            app:layout_constraintTop_toBottomOf="@+id/M1" />
+
+        <EditText
+            android:id="@+id/M3"
+            android:layout_width="311dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="40dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:hint="!!!  Im in very Dangers situation come and help me please "
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#63757575"
+            app:layout_constraintBottom_toTopOf="@+id/SaveAssistantInfo"
+            app:layout_constraintEnd_toEndOf="@+id/SaveAssistantInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/M2"
+            app:layout_constraintTop_toBottomOf="@+id/M2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The content of Message 3:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/M3"
+            app:layout_constraintStart_toStartOf="@+id/M3"
+            app:layout_constraintTop_toBottomOf="@+id/M2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The content of Message 2:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/M2"
+            app:layout_constraintEnd_toEndOf="@+id/M2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/M2"
+            app:layout_constraintTop_toBottomOf="@+id/M1"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView06"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="255dp"
-            android:layout_marginBottom="449dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:foregroundGravity="left|center"
             android:gravity="center|left"
             android:text="The content of Message 1:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/M1"
+            app:layout_constraintBottom_toTopOf="@+id/M1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/M1"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="255dp"
-            android:layout_marginBottom="323dp"
-            android:foregroundGravity="left|center"
-            android:gravity="center|left"
-            android:text="The content of Message 2:"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/M2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/M2"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="257dp"
-            android:layout_marginBottom="197dp"
-            android:foregroundGravity="left|center"
-            android:gravity="center|left"
-            android:text="The content of Message 2:"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/M3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/M3"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView05"
-            android:layout_width="138dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-            android:layout_marginEnd="254dp"
-            android:layout_marginBottom="532dp"
             android:foregroundGravity="left|center"
             android:gravity="center|left"
-            android:text="Phone Number:"
+            android:text="The Helper Phone Number:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/phoneNoo"
+            app:layout_constraintBottom_toTopOf="@+id/phoneNoo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/phoneNoo"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/titleAI"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/titleAI"
             android:layout_width="299dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="51dp"
+            android:layout_marginTop="32dp"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Assistant Information"
@@ -395,10 +365,9 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/phoneNoo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -413,6 +382,180 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/SaveHealthProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="SAVE"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/NID"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="124dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleHP"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/MedicalFile"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FullName"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/FullName"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.805"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NID"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <RadioGroup
+
+            android:id="@+id/radio"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="60dp"
+
+            android:layout_alignParentStart="true"
+
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.819"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MedicalFile">
+
+
+            <RadioButton
+
+                android:id="@+id/Bt_A"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="A"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textColorHighlight="@color/colorPrimaryDark"
+
+                android:textColorHint="@color/colorPrimaryDark"
+
+                android:textColorLink="@color/colorAccent"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="172dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+            <RadioButton
+
+                android:id="@+id/bt_B"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="B"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+            <RadioButton
+
+                android:id="@+id/bt_AB"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="AB"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="267dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+            <RadioButton
+
+                android:id="@+id/bt_O"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:button="@android:drawable/btn_radio"
+
+                android:text="O"
+
+                android:textColor="@color/colorPrimaryDark"
+
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="324dp"
+                tools:layout_editor_absoluteY="345dp" />
+
+
+        </RadioGroup>
 
         <TextView
 
@@ -443,178 +586,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radio"
             app:layout_constraintEnd_toStartOf="@+id/radio"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.771"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/radio"
-            app:layout_constraintVertical_bias="0.26999998" />
-
-        <RadioGroup
-
-            android:id="@+id/radio"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="60dp"
-
-            android:layout_alignParentStart="true"
-
-            android:layout_alignParentTop="true"
-
-            android:layout_alignParentEnd="true"
-
-            android:layout_alignParentBottom="true"
-
-            android:layout_marginTop="36dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.72"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MedicalFile">
-
-
-            <RadioButton
-
-                android:id="@+id/Bt_A"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="A"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textColorHighlight="@color/colorPrimaryDark"
-
-                android:textColorHint="@color/colorPrimaryDark"
-
-                android:textColorLink="@color/colorAccent"
-
-                android:textStyle="bold" />
-
-
-            <RadioButton
-
-                android:id="@+id/bt_B"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="B"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-            <RadioButton
-
-                android:id="@+id/bt_AB"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="AB"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-
-            <RadioButton
-
-                android:id="@+id/bt_O"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:button="@android:drawable/btn_radio"
-
-                android:text="O"
-
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textStyle="bold" />
-
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/SaveHealthProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="SAVE"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radio"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-        <EditText
-            android:id="@+id/NID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.701"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleHP"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-        <EditText
-            android:id="@+id/FullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.706"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NID"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-        <EditText
-            android:id="@+id/MedicalFile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.706"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FullName"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
+            app:layout_constraintVertical_bias="0.305" />
 
         <TextView
             android:id="@+id/textView01"
@@ -628,10 +603,13 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/NID"
             app:layout_constraintEnd_toStartOf="@+id/NID"
+            app:layout_constraintHorizontal_bias="0.391"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/NID"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="0dp" />
+
 
         <TextView
             android:id="@+id/textView02"
@@ -644,11 +622,9 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/FullName"
-            app:layout_constraintEnd_toStartOf="@+id/FullName"
-            app:layout_constraintHorizontal_bias="0.55"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView01"
             app:layout_constraintTop_toBottomOf="@+id/NID"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.8"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -664,6 +640,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/MedicalFile"
             app:layout_constraintEnd_toStartOf="@+id/MedicalFile"
+            app:layout_constraintHorizontal_bias="0.794"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/MedicalFile"
             tools:layout_conversion_absoluteHeight="0dp"
@@ -673,7 +650,7 @@
             android:id="@+id/titleHP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Health Profile"
