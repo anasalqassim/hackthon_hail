@@ -41,12 +41,22 @@ public class MenuActivity extends AppCompatActivity {
      private boolean i=false;
     private ImageView profileimg;
     Uri selectPhotoUri;
+    String intent2="";
+    EditText FirstName,message3,LastName,PhoneNo,NationalID,FullName,MFile,PhoneNoA,message1,message2;
+
+
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     HashMap<String,String> userMap = new HashMap<>();
 
+    ConstraintLayout PersonalInformation;
+    ConstraintLayout HealthProfile;
+    ConstraintLayout AssistantInfo;
+    RadioGroup BloodType;
+
+    Button aSave , hSave,pSave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,49 +68,255 @@ public class MenuActivity extends AppCompatActivity {
             final String keyUser = "anas";
 
 
+        //data passed from main activity to decide which relative layout to show:
+
+        try{
+
+             intent2 =  getIntent().getStringExtra("key");
+
+            Toast.makeText(getApplicationContext() ,intent2 , Toast.LENGTH_LONG).show();
+            assert intent2 != null;
+            if (intent2.equals("InfoC" )) {
+                PersonalInformation.setVisibility(View.VISIBLE);
+                HealthProfile.setVisibility(View.GONE);
+                AssistantInfo.setVisibility(View.GONE);
+
+
+                i = true;
+
+            }
+
+            else if (intent2.equals("MedcK")) {
+
+
+                HealthProfile.setVisibility(View.VISIBLE);
+                AssistantInfo.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext() ,intent2 , Toast.LENGTH_LONG).show();
+
+                PersonalInformation.setVisibility(View.GONE);
+
+                i = true;
+            }
+
+            else if (intent2.equals( "HelpK" )) {
+                AssistantInfo.setVisibility(View.VISIBLE);
+                HealthProfile.setVisibility(View.GONE);
+                PersonalInformation.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext() ,intent2 , Toast.LENGTH_LONG).show();
+
+                i = true;
+
+            }
+
+            if (i){
+
+                switch (Objects.requireNonNull(intent2)){
+
+                    case "InfoC" :
+
+                        pSave.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(MenuActivity.this , MainActivity12.class);
+                                FName= FirstName.getText().toString();
+                                LName =LastName.getText().toString();
+                                phonenum= PhoneNo.getText().toString();
+                                profileimg.setDrawingCacheEnabled(true);
+                                b=profileimg.getDrawingCache();
+
+                                if (phonenum.length() != 10){
+                                    Toast.makeText(getApplicationContext(), " Write a valid number please" , Toast.LENGTH_LONG).show();
+
+                                }else if(phonenum.charAt(0) == '0'){
+                                    phonenum  = "+966" +  phonenum.substring(1);
+
+
+
+                                    userMap.put("plastname" , LName);
+                                    userMap.put("pphonenum" , phonenum);
+                                    userMap.put("pfirstname" , FName);
+
+                                    firebaseDatabase.getReference("userData/anas").setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+
+
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.d("dataBaseError" , e.toString());
+                                        }
+                                    });
+
+
+
+
+                                    startActivity(intent);
+                                }
+
+
+
+
+                            }
+                        });
+
+                        break;
+
+                    case "MedcK" :
+                        hSave.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(MenuActivity.this ,MainActivity12.class);
+                                nationalid= NationalID.getText().toString();
+                                fullname=FullName.getText().toString();
+                                mfile=MFile.getText().toString();
+                                int radioID=BloodType.getCheckedRadioButtonId();
+                                RadioButton radioButton=findViewById(radioID);
+                                bloodtype = radioButton.getText().toString();
+
+
+                                userMap.put("hnid" , nationalid);
+                                userMap.put("hfullname" , fullname);
+                                userMap.put("hmfile" , mfile);
+                                userMap.put("hbloodtype" , bloodtype);
+
+                                firebaseDatabase.getReference("userData/anas").setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d("dataBaseError" , e.toString());
+                                    }
+                                });
+
+
+                                startActivity(intent);
+                            }
+                        });
+
+                        break;
+
+                    case "HelpK" :
+
+
+
+
+                        aSave.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
+
+                                String pha = PhoneNoA.getText().toString();
+                                intent.putExtra("aPhonenum",pha);
+
+                                if (pha.length() != 10){
+                                    Toast.makeText(getApplicationContext(), " Write a valid number please" , Toast.LENGTH_LONG).show();
+                                }else if(pha.charAt(0) == '0'){
+                                    pha  = "+966" +  pha.substring(1);
+                                }
+
+                                String msg1 = message1.getText().toString();
+
+                                String msg2 = message2.getText().toString();
+
+                                String msg3 = message3.getText().toString();
+
+                                if (msg1.isEmpty()){
+                                    msg1 = "I'm not in in hurry but can you please if you are free come to help me with something ";
+                                }else if (msg2.isEmpty()){
+                                    msg2 = " I'm in wired situation Im not sure but if you are free come to me please  ";
+                                }else if (msg3.isEmpty()){
+                                    msg3 = "!!!  Im in very Dangers situation come and help me please ";
+                                }
+
+
+                                userMap.put("aPhonenum" , pha);
+
+                                userMap.put("aMsg1" ,msg1);
+                                userMap.put("aMsg2" , msg2);
+                                userMap.put("aMsg3" , msg3);
+
+                                firebaseDatabase.getReference("userData/anas").setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d("dataBaseError" , e.toString());
+                                    }
+                                });
+
+                                startActivity(intent);
+
+
+                            }
+                        });
+
+
+
+
+                        break;
+
+                }
+
+
+            }
+
+            }
+
+        catch (Exception e){e.printStackTrace();}
+
+
+
+
 
 
 
         //3 Relative Layout (GONE)
-        final ConstraintLayout PersonalInformation =findViewById(R.id.PersonalInfo);
-        final ConstraintLayout HealthProfile =findViewById(R.id.HealthProfile);
-        final ConstraintLayout AssistantInfo =findViewById(R.id.assistantInfo);
+         PersonalInformation =findViewById(R.id.PersonalInfo);
+         HealthProfile =findViewById(R.id.HealthProfile);
+         AssistantInfo =findViewById(R.id.assistantInfo);
 
         //Personal Information Layout variables declaration :
-        final EditText FirstName=findViewById(R.id.FirstName);
-        final EditText LastName=findViewById(R.id.LastName);
-        final EditText PhoneNo=findViewById(R.id.PhoneNo);
-        profileimg  =findViewById(R.id.profile_image);
-        Button pSave=findViewById(R.id.SavePersonalInfo);
+         FirstName=findViewById(R.id.FirstName);
+         LastName=findViewById(R.id.LastName);
+         PhoneNo=findViewById(R.id.PhoneNo);
+         profileimg  =findViewById(R.id.profile_image);
+         pSave=findViewById(R.id.SavePersonalInfo);
 
 
         //Health Profile Layout variables declaration :
-        final EditText NationalID=findViewById(R.id.NID);
-        final EditText FullName=findViewById(R.id.FullName);
-        final EditText MFile=findViewById(R.id.MedicalFile);
-        final RadioGroup BloodType =findViewById(R.id.radio);
-        Button hSave=findViewById(R.id.SaveHealthProfile);
+         NationalID=findViewById(R.id.NID);
+         FullName=findViewById(R.id.FullName);
+         MFile=findViewById(R.id.MedicalFile);
+         BloodType =findViewById(R.id.radio);
+         hSave=findViewById(R.id.SaveHealthProfile);
 
 
         //Assistant Info Layout variables declaration :
-        final EditText PhoneNoA=findViewById(R.id.phoneNoo);
-        final EditText message1=findViewById(R.id.M1);
-        final EditText message2=findViewById(R.id.M2);
-        final EditText message3=findViewById(R.id.M3);
-        Button aSave=findViewById(R.id.SaveAssistantInfo);
+         PhoneNoA=findViewById(R.id.phoneNoo);
+         message1=findViewById(R.id.M1);
+         message2=findViewById(R.id.M2);
+         message3=findViewById(R.id.M3);
+
+         aSave=findViewById(R.id.SaveAssistantInfo);
 
 
 
 
         //data passed from main activity to decide which relative layout to show:
-        try{
-        String intent =  getIntent().getStringExtra("key");
-        switch (Objects.requireNonNull(intent)){
-            case "InfoC" :PersonalInformation.setVisibility(View.VISIBLE); ; break;
-            case "MedcK" :HealthProfile.setVisibility(View.VISIBLE);break;
-            case "HelpK" :AssistantInfo.setVisibility(View.VISIBLE);break;
-        }}
-        catch (Exception e){e.printStackTrace();}
+
 
 
 
@@ -116,108 +332,121 @@ public class MenuActivity extends AppCompatActivity {
 
 
         //
-        pSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FName= FirstName.getText().toString();
-                LName =LastName.getText().toString();
-                phonenum= PhoneNo.getText().toString();
-                profileimg.setDrawingCacheEnabled(true);
-                b=profileimg.getDrawingCache();
+        if (!i) {
+            pSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FName = FirstName.getText().toString();
+                    LName = LastName.getText().toString();
+                    phonenum = PhoneNo.getText().toString();
+                    profileimg.setDrawingCacheEnabled(true);
+                    b = profileimg.getDrawingCache();
 
+                    if (phonenum.length() != 10) {
+                        Toast.makeText(getApplicationContext(), " Write a valid number please", Toast.LENGTH_LONG).show();
 
-               PersonalInformation.setVisibility(View.GONE);
-               HealthProfile.setVisibility(View.VISIBLE);
-               AssistantInfo.setVisibility(View.GONE);}
-
-
-        });
-
-        //
-        hSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nationalid= NationalID.getText().toString();
-                fullname=FullName.getText().toString();
-                mfile=MFile.getText().toString();
-                int radioID=BloodType.getCheckedRadioButtonId();
-                RadioButton radioButton=findViewById(radioID);
-                bloodtype= radioButton.getText().toString();
-
-                PersonalInformation.setVisibility(View.GONE);
-                HealthProfile.setVisibility(View.GONE);
-                AssistantInfo.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-
-        //
-        aSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                 Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
-
-
-                intent.putExtra("pfirstname",FName);
-                intent.putExtra("plastname",LName);
-                intent.putExtra("pphonenum",phonenum);
-                intent.putExtra("pprofileimg", b);
-
-                intent.putExtra("hnid",nationalid);
-                intent.putExtra("hfullname",fullname);
-                intent.putExtra("hmfile",mfile);
-                intent.putExtra("hbloodtype",bloodtype);
-
-
-
-                String pha = PhoneNoA.getText().toString();
-                intent.putExtra("aPhonenum",pha);
-
-                intent.putExtra("aMsg1",message1.getText().toString());
-                intent.putExtra("aMsg2",message2.getText().toString());
-                intent.putExtra("aMsg3",message3.getText().toString());
-
-
-                PersonalInformation.setVisibility(View.GONE);
-                HealthProfile.setVisibility(View.GONE);
-                AssistantInfo.setVisibility(View.GONE);
-
-                userMap.put("plastname" , LName);
-                userMap.put("pphonenum" , phonenum);
-                userMap.put("pfirstname" , FName);
-                userMap.put("hnid" , nationalid);
-                userMap.put("hfullname" , fullname);
-                userMap.put("hmfile" , mfile);
-                userMap.put("hbloodtype" , bloodtype);
-                userMap.put("aPhonenum" , pha);
-
-                userMap.put("aMsg1" , message1.getText().toString());
-                userMap.put("aMsg2" , message2.getText().toString());
-                userMap.put("aMsg3" , message3.getText().toString());
-
-                firebaseDatabase.getReference("userData/"+keyUser).setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-
-
+                    } else if (phonenum.charAt(0) == '0') {
+                        phonenum = "+966" + phonenum.substring(1);
+                        PersonalInformation.setVisibility(View.GONE);
+                        HealthProfile.setVisibility(View.VISIBLE);
+                        AssistantInfo.setVisibility(View.GONE);
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("dataBaseError" , e.toString());
-                    }
-                });
-
-                startActivity(intent);
-
                 }
 
 
             });
 
+            //
+            hSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    nationalid = NationalID.getText().toString();
+                    fullname = FullName.getText().toString();
+                    mfile = MFile.getText().toString();
+                    int radioID = BloodType.getCheckedRadioButtonId();
+                    RadioButton radioButton = findViewById(radioID);
+                    bloodtype = radioButton.getText().toString();
+
+
+                    PersonalInformation.setVisibility(View.GONE);
+                    HealthProfile.setVisibility(View.GONE);
+                    AssistantInfo.setVisibility(View.VISIBLE);
+
+                }
+            });
+
+
+            //
+            aSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(MenuActivity.this, MainActivity12.class);
+
+
+                    String pha = PhoneNoA.getText().toString();
+                    intent.putExtra("aPhonenum", pha);
+
+                    if (pha.length() != 10) {
+                        Toast.makeText(getApplicationContext(), " Write a valid number please", Toast.LENGTH_LONG).show();
+                    } else if (pha.charAt(0) == '0') {
+                        pha = "+966" + pha.substring(1);
+                    }
+
+                    String msg1 = message1.getText().toString();
+
+                    String msg2 = message2.getText().toString();
+
+                    String msg3 = message3.getText().toString();
+
+                    if (msg1.isEmpty()) {
+                        msg1 = "I'm not in in hurry but can you please if you are free come to help me with something ";
+                    } else if (msg2.isEmpty()) {
+                        msg2 = " I'm in wired situation Im not sure but if you are free come to me please  ";
+                    } else if (msg3.isEmpty()) {
+                        msg3 = "!!!  Im in very Dangers situation come and help me please ";
+                    }
+
+
+                    PersonalInformation.setVisibility(View.GONE);
+                    HealthProfile.setVisibility(View.GONE);
+                    AssistantInfo.setVisibility(View.GONE);
+
+                    userMap.put("plastname", LName);
+                    userMap.put("pphonenum", phonenum);
+                    userMap.put("pfirstname", FName);
+
+                    userMap.put("hnid", nationalid);
+                    userMap.put("hfullname", fullname);
+                    userMap.put("hmfile", mfile);
+                    userMap.put("hbloodtype", bloodtype);
+
+                    userMap.put("aPhonenum", pha);
+
+                    userMap.put("aMsg1", msg1);
+                    userMap.put("aMsg2", msg2);
+                    userMap.put("aMsg3", msg3);
+
+                    firebaseDatabase.getReference("userData/" + keyUser).setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("dataBaseError", e.toString());
+                        }
+                    });
+
+                    startActivity(intent);
+
+                }
+
+
+            });
+        }
 
     }
 
@@ -240,6 +469,8 @@ public class MenuActivity extends AppCompatActivity {
 
 
         }
+
+
 
 
     }

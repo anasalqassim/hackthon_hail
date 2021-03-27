@@ -31,6 +31,7 @@ import android.widget.Button;
 
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,8 +58,8 @@ public class MainActivity12 extends AppCompatActivity {
     private String medic_FileId, medic_nationalId, medic_fullName, medic_bloodType;
     private String P_firstName, P_LastName, P_phoneNumber;
     private String H_phoneNumber, H_massage1, H_massage2, H_massage3;
-    private double Longitude;
-    private double Latitude;
+    private double Longitude = 0.0 ;
+    private double Latitude = 0.0;
     private LocationManager locationManager;
 
     FirebaseDatabase firebaseDatabase;
@@ -67,7 +68,14 @@ public class MainActivity12 extends AppCompatActivity {
     private String locationLink = "https://www.google.com/maps/dir/?api=1&origin=";
 
 
-    private Button Send;
+    private LinearLayout editP_info;
+
+    private LinearLayout editH_info;
+
+    private LinearLayout editM_info;
+
+
+
     private ImageView profileImage;
     private TextView welcome ,statemsg1,statemsg2;
     private ConstraintLayout state;
@@ -93,6 +101,39 @@ public class MainActivity12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // for all initializations
+        editH_info = findViewById(R.id.aButton);
+        editH_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
+                intent.putExtra("key","HelpK");
+                startActivity(intent );
+            }
+        });
+
+
+        editP_info = findViewById(R.id.pButton);
+        editP_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
+                intent.putExtra("key","InfoC");
+                startActivity(intent );
+            }
+        });
+
+        editM_info = findViewById(R.id.hButton);
+        editM_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
+                intent.putExtra("key","MedcK");
+                startActivity(intent );
+            }
+        });
+
+
+
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         databaseReference  = firebaseDatabase.getReference("userData");
@@ -114,7 +155,6 @@ public class MainActivity12 extends AppCompatActivity {
                 P_firstName = snapshot.child("pfirstname").getValue().toString();
                 P_LastName =snapshot.child("plastname").getValue().toString();
                 P_phoneNumber = snapshot.child("pphonenum").getValue().toString();
-
              //   data = (String) snapshot.child("pprofileimg").getValue();
                 Toast.makeText(getApplicationContext(),P_firstName , Toast.LENGTH_LONG).show();
 
@@ -124,8 +164,8 @@ public class MainActivity12 extends AppCompatActivity {
                 statemsg2=findViewById(R.id.state2);
                 welcome=findViewById(R.id.userName);
 
-                if(H_phoneNumber.isEmpty() && medic_fullName.isEmpty() && medic_FileId.isEmpty() && medic_nationalId.isEmpty() && medic_bloodType.isEmpty() &&
-                   P_firstName.isEmpty() && P_LastName.isEmpty() && P_phoneNumber.isEmpty()){
+                if(H_phoneNumber.isEmpty() || medic_fullName.isEmpty() || medic_FileId.isEmpty() || medic_nationalId.isEmpty() || medic_bloodType.isEmpty() ||
+                   P_firstName.isEmpty()|| P_LastName.isEmpty() || P_phoneNumber.isEmpty()){
 
                     state.setBackgroundResource(R.drawable.missing_info);
                     statemsg1.setText("You have a missing information!");
@@ -156,21 +196,24 @@ public class MainActivity12 extends AppCompatActivity {
 
             ActivityCompat.requestPermissions(MainActivity12.this , new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.SEND_SMS,Manifest.permission.WAKE_LOCK},MY_PERMISSIONS_REQUEST_SEND_SMS);
 
+        }else {
+            ActivityCompat.requestPermissions(MainActivity12.this , new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.SEND_SMS,Manifest.permission.WAKE_LOCK},MY_PERMISSIONS_REQUEST_SEND_SMS);
+            fusedLocationClient.getLastLocation().addOnCompleteListener(this
+                    , new OnCompleteListener<Location>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Location> task) {
+                            if (task.getResult()!= null) {
+                                location = task.getResult();
+
+
+                                Longitude = location.getLongitude();
+                                Latitude = location.getLatitude();
+                            }
+
+                        }
+                    });
+
         }
-        fusedLocationClient.getLastLocation().addOnCompleteListener(this
-                , new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        location = task.getResult();
-
-                        Longitude = location.getLongitude();
-                        Latitude = location.getLatitude();
-
-
-                    }
-                });
-
-
         Ins();
 
 
