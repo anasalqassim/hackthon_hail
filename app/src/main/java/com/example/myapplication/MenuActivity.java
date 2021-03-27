@@ -6,15 +6,22 @@ import android.graphics.Bitmap;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +32,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class MenuActivity extends AppCompatActivity {
      String FName,LName,phonenum,nationalid,fullname,mfile,bloodtype;
@@ -32,10 +41,24 @@ public class MenuActivity extends AppCompatActivity {
      private boolean i=false;
     private ImageView profileimg;
     Uri selectPhotoUri;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    HashMap<String,String> userMap = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+            firebaseDatabase = FirebaseDatabase.getInstance();
+
+            databaseReference  = firebaseDatabase.getReference("userData");
+
+            final String keyUser = "anas";
+
+
+
 
 
         //3 Relative Layout (GONE)
@@ -72,7 +95,7 @@ public class MenuActivity extends AppCompatActivity {
         //data passed from main activity to decide which relative layout to show:
         try{
         String intent =  getIntent().getStringExtra("key");
-        switch (intent){
+        switch (Objects.requireNonNull(intent)){
             case "InfoC" :PersonalInformation.setVisibility(View.VISIBLE); ; break;
             case "MedcK" :HealthProfile.setVisibility(View.VISIBLE);break;
             case "HelpK" :AssistantInfo.setVisibility(View.VISIBLE);break;
@@ -134,7 +157,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
+                 Intent intent =new Intent(MenuActivity.this,MainActivity12.class);
 
 
                 intent.putExtra("pfirstname",FName);
@@ -161,11 +184,40 @@ public class MenuActivity extends AppCompatActivity {
                 HealthProfile.setVisibility(View.GONE);
                 AssistantInfo.setVisibility(View.GONE);
 
+                userMap.put("plastname" , LName);
+                userMap.put("pphonenum" , phonenum);
+                userMap.put("pfirstname" , FName);
+                userMap.put("hnid" , nationalid);
+                userMap.put("hfullname" , fullname);
+                userMap.put("hmfile" , mfile);
+                userMap.put("hbloodtype" , bloodtype);
+                userMap.put("aPhonenum" , pha);
+
+                userMap.put("aMsg1" , message1.getText().toString());
+                userMap.put("aMsg2" , message2.getText().toString());
+                userMap.put("aMsg3" , message3.getText().toString());
+
+                firebaseDatabase.getReference("userData/"+keyUser).setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("dataBaseError" , e.toString());
+                    }
+                });
+
                 startActivity(intent);
+
                 }
 
 
             });
+
 
     }
 

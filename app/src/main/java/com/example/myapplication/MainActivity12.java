@@ -41,6 +41,11 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
@@ -55,6 +60,8 @@ public class MainActivity12 extends AppCompatActivity {
     private double Latitude;
     private LocationManager locationManager;
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     private String locationLink = "https://www.google.com/maps/dir/?api=1&origin=";
 
@@ -84,6 +91,37 @@ public class MainActivity12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // for all initializations
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        databaseReference  = firebaseDatabase.getReference("userData");
+
+        databaseReference.child("anas").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                H_phoneNumber = (String) snapshot.child("aPhonenum").getValue();
+
+                H_massage1 =  snapshot.child("aMsg1").getValue().toString();
+                H_massage2 =  snapshot.child("aMsg2").getValue().toString();
+                H_massage3 =  snapshot.child("aMsg3").getValue().toString();
+
+                medic_fullName =  snapshot.child("hfullname").getValue().toString();
+                medic_FileId =  snapshot.child("hmfile").getValue().toString();
+                medic_nationalId =  snapshot.child("hnid").getValue().toString();
+                medic_bloodType =  snapshot.child("hbloodtype").getValue().toString();
+
+                P_firstName = snapshot.child("pfirstname").getValue().toString();
+                P_LastName =snapshot.child("plastname").getValue().toString();
+                P_phoneNumber = snapshot.child("pphonenum").getValue().toString();
+
+             //   data = (String) snapshot.child("pprofileimg").getValue();
+                Toast.makeText(getApplicationContext(),P_firstName , Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -194,30 +232,30 @@ public class MainActivity12 extends AppCompatActivity {
 
         try {
 
-            H_phoneNumber = getIntent().getStringExtra("aPhonenum");
-
-            H_massage1 = getIntent().getStringExtra("aMsg1");
-            H_massage2 = getIntent().getStringExtra("aMsg2");
-            H_massage3 = getIntent().getStringExtra("aMsg3");
-
-            medic_fullName = getIntent().getStringExtra("hfullname");
-            medic_FileId = getIntent().getStringExtra("hmfile");
-            medic_nationalId = getIntent().getStringExtra("hnid");
-            medic_bloodType = getIntent().getStringExtra("hbloodtype");
-
-            P_firstName = getIntent().getStringExtra("pfirstname");
-            P_LastName = getIntent().getStringExtra("plastname");
-            P_phoneNumber = getIntent().getStringExtra("pphonenum");
+//            H_phoneNumber = getIntent().getStringExtra("aPhonenum");
+//
+//            H_massage1 = getIntent().getStringExtra("aMsg1");
+//            H_massage2 = getIntent().getStringExtra("aMsg2");
+//            H_massage3 = getIntent().getStringExtra("aMsg3");
+//
+//            medic_fullName = getIntent().getStringExtra("hfullname");
+//            medic_FileId = getIntent().getStringExtra("hmfile");
+//            medic_nationalId = getIntent().getStringExtra("hnid");
+//            medic_bloodType = getIntent().getStringExtra("hbloodtype");
+//
+//            P_firstName = getIntent().getStringExtra("pfirstname");
+//            P_LastName = getIntent().getStringExtra("plastname");
+//            P_phoneNumber = getIntent().getStringExtra("pphonenum");
             data = getIntent().getParcelableExtra("pprofileimg");
             if(data != null){
                 profileImage.setImageBitmap(data);
             }
 
-            Log.d("UserInfo" ,  "H_phoneNumber : " + H_phoneNumber);
-
-            Log.d("UserInfo" ,  "medic_fullName : " + medic_fullName);
-
-            Log.d("UserInfo" ,  "P_firstName : " + P_firstName);
+//            Log.d("UserInfo" ,  "H_phoneNumber : " + H_phoneNumber);
+//
+//            Log.d("UserInfo" ,  "medic_fullName : " + medic_fullName);
+//
+//            Log.d("UserInfo" ,  "P_firstName : " + P_firstName);
         }catch (Exception ex){
 
 
