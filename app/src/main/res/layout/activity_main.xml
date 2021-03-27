@@ -174,8 +174,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/edit_profile_image_border"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
