@@ -3,4 +3,9 @@
 
 <solid android:color="@color/missingInfo"/>
 <corners android:radius="10dp"/>
+    <gradient
+        android:type="linear"
+        android:angle="-90"
+        android:startColor="@color/missingInfo"
+        android:endColor="#636363" />
 </shape>

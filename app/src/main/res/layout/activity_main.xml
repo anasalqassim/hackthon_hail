@@ -15,7 +15,7 @@
         android:layout_marginBottom="40dp"
         android:text="Welcome "
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/stateLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/stateLayout"
         android:layout_width="378dp"
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
@@ -176,7 +176,7 @@
         android:id="@+id/edit_profile_image_border"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/stateLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 

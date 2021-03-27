@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -68,7 +69,8 @@ public class MainActivity12 extends AppCompatActivity {
 
     private Button Send;
     private ImageView profileImage;
-    private TextView Welcome;
+    private TextView welcome ,statemsg1,statemsg2;
+    private ConstraintLayout state;
     private LocationCallback locationCallback;
 
     private Bitmap data;
@@ -115,7 +117,32 @@ public class MainActivity12 extends AppCompatActivity {
 
              //   data = (String) snapshot.child("pprofileimg").getValue();
                 Toast.makeText(getApplicationContext(),P_firstName , Toast.LENGTH_LONG).show();
+
+
+                state=findViewById(R.id.stateLayout);
+                statemsg1=findViewById(R.id.state);
+                statemsg2=findViewById(R.id.state2);
+                welcome=findViewById(R.id.userName);
+
+                if(H_phoneNumber.isEmpty() && medic_fullName.isEmpty() && medic_FileId.isEmpty() && medic_nationalId.isEmpty() && medic_bloodType.isEmpty() &&
+                   P_firstName.isEmpty() && P_LastName.isEmpty() && P_phoneNumber.isEmpty()){
+
+                    state.setBackgroundResource(R.drawable.missing_info);
+                    statemsg1.setText("You have a missing information!");
+                    statemsg2.setText("");//empty msg
+
+
+                }else{
+                    state.setBackgroundResource(R.drawable.good_state);
+                    statemsg1.setText("Every thing is okay");
+                    statemsg2.setText("your helper phone number: "+H_phoneNumber);//empty msg
+                    welcome.setText("Welcome "+P_firstName);
+
+                }
             }
+
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -232,20 +259,8 @@ public class MainActivity12 extends AppCompatActivity {
 
         try {
 
-//            H_phoneNumber = getIntent().getStringExtra("aPhonenum");
-//
-//            H_massage1 = getIntent().getStringExtra("aMsg1");
-//            H_massage2 = getIntent().getStringExtra("aMsg2");
-//            H_massage3 = getIntent().getStringExtra("aMsg3");
-//
-//            medic_fullName = getIntent().getStringExtra("hfullname");
-//            medic_FileId = getIntent().getStringExtra("hmfile");
-//            medic_nationalId = getIntent().getStringExtra("hnid");
-//            medic_bloodType = getIntent().getStringExtra("hbloodtype");
-//
-//            P_firstName = getIntent().getStringExtra("pfirstname");
-//            P_LastName = getIntent().getStringExtra("plastname");
-//            P_phoneNumber = getIntent().getStringExtra("pphonenum");
+
+
             data = getIntent().getParcelableExtra("pprofileimg");
             if(data != null){
                 profileImage.setImageBitmap(data);
