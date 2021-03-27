@@ -70,7 +70,7 @@ public class MenuActivity extends AppCompatActivity {
          AssistantInfo =findViewById(R.id.assistantInfo);
 
         //Personal Information Layout variables declaration :
-         FirstName=findViewById(R.id.FirstNameNew);
+         FirstName=findViewById(R.id.FirstName);
          LastName=findViewById(R.id.LastName);
          PhoneNo=findViewById(R.id.PhoneNo);
          profileimg  =findViewById(R.id.profile_image);
@@ -175,11 +175,13 @@ public class MenuActivity extends AppCompatActivity {
                     String msg3 = message3.getText().toString();
 
                     if (msg1.isEmpty()) {
-                        msg1 = "I'm not in in hurry but can you please if you are free come to help me with something ";
-                    } else if (msg2.isEmpty()) {
-                        msg2 = " I'm in wired situation Im not sure but if you are free come to me please  ";
-                    } else if (msg3.isEmpty()) {
-                        msg3 = "!!!  Im in very Dangers situation come and help me please ";
+                        msg1 = "I'm not in hurry but can you come please";
+                    }
+                    if (msg2.isEmpty()) {
+                        msg2 = "I need your help can you come please";
+                    }
+                    if (msg3.isEmpty()) {
+                        msg3 = "I'm in very Dangers situation come and help me please";
                     }
 
 

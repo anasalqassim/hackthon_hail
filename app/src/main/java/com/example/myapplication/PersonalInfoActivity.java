@@ -69,23 +69,11 @@ public class PersonalInfoActivity extends AppCompatActivity {
 
 
 
-                    userMap.put("plastname" , LName);
-                    userMap.put("pphonenum" , phonenum);
-                    userMap.put("pfirstname" , FName);
 
-                    firebaseDatabase.getReference("userData/anas").setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
+                    firebaseDatabase.getReference("userData/anas/plastname").setValue(LName);
+                    firebaseDatabase.getReference("userData/anas/pphonenum").setValue(phonenum);
+                    firebaseDatabase.getReference("userData/anas/pfirstname").setValue(FName);
 
-
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d("dataBaseError" , e.toString());
-                        }
-                    });
 
 
 

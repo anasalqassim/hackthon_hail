@@ -105,8 +105,8 @@ public class MainActivity12 extends AppCompatActivity {
         editH_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
-                intent.putExtra("key","HelpK");
+                Intent intent = new Intent(MainActivity12.this , HealthProfileActivity.class);
+
                 startActivity(intent );
             }
         });
@@ -116,8 +116,8 @@ public class MainActivity12 extends AppCompatActivity {
         editP_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
-                intent.putExtra("key","InfoC");
+                Intent intent = new Intent(MainActivity12.this , PersonalInfoActivity.class);
+
                 startActivity(intent );
             }
         });
@@ -126,8 +126,8 @@ public class MainActivity12 extends AppCompatActivity {
         editM_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity12.this , MenuActivity.class);
-                intent.putExtra("key","MedcK");
+                Intent intent = new Intent(MainActivity12.this , AssistantInfoActivity.class);
+
                 startActivity(intent );
             }
         });
@@ -197,7 +197,6 @@ public class MainActivity12 extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity12.this , new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.SEND_SMS,Manifest.permission.WAKE_LOCK},MY_PERMISSIONS_REQUEST_SEND_SMS);
 
         }else {
-            ActivityCompat.requestPermissions(MainActivity12.this , new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.SEND_SMS,Manifest.permission.WAKE_LOCK},MY_PERMISSIONS_REQUEST_SEND_SMS);
             fusedLocationClient.getLastLocation().addOnCompleteListener(this
                     , new OnCompleteListener<Location>() {
                         @Override
@@ -263,13 +262,15 @@ public class MainActivity12 extends AppCompatActivity {
 
 
         try {
-            if (Longitude != 0.0) {
+
+
                 smsManager.sendTextMessage(H_phoneNumber, null, massage + "\n  My Location is : \n" + locationLink + Latitude + "," + Longitude + "     \n emergency level : " + c, null, null);
-                Toast.makeText(getApplicationContext(), "SMS sent.",
+
+                Toast.makeText(getApplicationContext(), "SMS sent." + H_phoneNumber,
                         Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(getApplicationContext(), "^_^ hhhhhhhh", Toast.LENGTH_LONG).show();
-            }
+
+
+
         }catch (Exception e){
 
             Log.d("SMS Failed" , Objects.requireNonNull(e.getMessage()));

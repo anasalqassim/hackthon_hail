@@ -63,33 +63,24 @@ public class AssistantInfoActivity extends AppCompatActivity {
 
                 String msg3 = message3.getText().toString();
 
-                if (msg1.isEmpty()){
-                    msg1 = "I'm not in in hurry but can you please if you are free come to help me with something ";
-                }else if (msg2.isEmpty()){
-                    msg2 = " I'm in wired situation Im not sure but if you are free come to me please  ";
-                }else if (msg3.isEmpty()){
-                    msg3 = "!!!  Im in very Dangers situation come and help me please ";
+                if (msg1.isEmpty()) {
+                    msg1 = "I'm not in hurry but can you come please";
+                }
+                if (msg2.isEmpty()) {
+                    msg2 = "I need your help can you come please";
+                }
+                if (msg3.isEmpty()) {
+                    msg3 = "I'm in very Dangers situation come and help me please";
                 }
 
                 userMap.put("aPhonenum" , pha);
 
-                userMap.put("aMsg1" ,msg1);
-                userMap.put("aMsg2" , msg2);
-                userMap.put("aMsg3" , msg3);
-
-                firebaseDatabase.getReference("userData/anas").setValue(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
 
 
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("dataBaseError" , e.toString());
-                    }
-                });
+                firebaseDatabase.getReference("userData/anas/aPhonenum").setValue(pha);
+                firebaseDatabase.getReference("userData/anas/aMsg1").setValue(msg1);
+                firebaseDatabase.getReference("userData/anas/aMsg2").setValue(msg2);
+                firebaseDatabase.getReference("userData/anas/aMsg3").setValue(msg3);
 
                 startActivity(intent);
 
