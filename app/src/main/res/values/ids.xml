@@ -3,7 +3,7 @@
     <item name="PersonalInfo" type="id"/>
     <item name="SavePersonalInfo" type="id"/>
     <item name="PhoneNo" type="id"/>
-    <item name="FirstName" type="id"/>
+    <item name="FirstNameNew" type="id"/>
     <item name="textView11" type="id"/>
     <item name="LastName" type="id"/>
     <item name="textView12" type="id"/>

@@ -101,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginEnd="251dp"
+            android:layout_marginBottom="40dp"
             android:foregroundGravity="left|center"
             android:gravity="center|left"
             android:text="First Name:"
@@ -111,7 +112,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.288"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/FirstName"
+            app:layout_constraintTop_toTopOf="@+id/FirstNameNew"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -176,7 +177,7 @@
             android:layout_width="188dp"
             android:layout_height="188dp"
 
-            app:layout_constraintBottom_toTopOf="@+id/FirstName"
+            app:layout_constraintBottom_toTopOf="@+id/FirstNameNew"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

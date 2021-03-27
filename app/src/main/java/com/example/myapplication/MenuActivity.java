@@ -3,21 +3,17 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.provider.MediaStore;
@@ -28,7 +24,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -289,7 +284,7 @@ public class MenuActivity extends AppCompatActivity {
          AssistantInfo =findViewById(R.id.assistantInfo);
 
         //Personal Information Layout variables declaration :
-         FirstName=findViewById(R.id.FirstName);
+         FirstName=findViewById(R.id.FirstNameNew);
          LastName=findViewById(R.id.LastName);
          PhoneNo=findViewById(R.id.PhoneNo);
          profileimg  =findViewById(R.id.profile_image);

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".AssistantInfoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/assistantInfoNew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <Button
+            android:id="@+id/SaveAssistantInfoNew"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="@color/colorAccent"
+            android:text="SAVE"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/phoneNooNew"
+            android:layout_width="214dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginBottom="32dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="number|phone"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toTopOf="@+id/textView061"
+            app:layout_constraintEnd_toEndOf="@+id/textView051"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView051" />
+
+        <EditText
+            android:id="@+id/M1New"
+            android:layout_width="312dp"
+            android:layout_height="101dp"
+            android:layout_marginTop="228dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:hint="I'm not in in hurry but can you please if you are free come to help me with something "
+            android:inputType="textMultiLine"
+            android:singleLine="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#63757575"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.565"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/M2New"
+            android:layout_width="311dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="68dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:hint=" I'm in wired situation Im not sure but if you are free come to me please  "
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#63757575"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="@+id/M1New"
+            app:layout_constraintTop_toBottomOf="@+id/M1New" />
+
+        <EditText
+            android:id="@+id/M3New"
+            android:layout_width="311dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="40dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:hint="!!!  Im in very Dangers situation come and help me please "
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#63757575"
+            app:layout_constraintBottom_toTopOf="@+id/SaveAssistantInfo"
+            app:layout_constraintEnd_toEndOf="@+id/SaveAssistantInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/M2New"
+            app:layout_constraintTop_toBottomOf="@+id/M2New"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The content of Message 3:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/M3"
+            app:layout_constraintStart_toStartOf="@+id/M3New"
+            app:layout_constraintTop_toBottomOf="@+id/M2New"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The content of Message 2:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/M2New"
+            app:layout_constraintEnd_toEndOf="@+id/M2New"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/M2New"
+            app:layout_constraintTop_toBottomOf="@+id/M1New"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView061"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The content of Message 1:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/M1New"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView051"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="left|center"
+            android:gravity="center|left"
+            android:text="The Helper Phone Number:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/phoneNooNew"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleAINew"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/titleAINew"
+            android:layout_width="302dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Assistant Information"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/phoneNooNew"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
